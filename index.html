@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Um presente digital exclusivo de João para Ana">
+  <title>Para Ana ❤️ — Nossa História</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Cursor personalizado (desktop) -->
+  <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+
+  <!-- Partículas globais -->
+  <canvas id="particlesCanvas" aria-hidden="true"></canvas>
+  <div class="petals-container" id="petalsContainer" aria-hidden="true"></div>
+
+  <!-- Controle de música -->
+  <button class="music-toggle" id="musicToggle" aria-label="Ativar ou desativar música" title="Música">
+    <span class="music-icon">🎵</span>
+  </button>
+
+  <!-- ==================== TELA DE ABERTURA ==================== -->
+  <section class="hero" id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-shimmer"></div>
+    <div class="hero-content">
+      <p class="hero-pretitle reveal">Um presente exclusivo</p>
+      <h1 class="hero-title reveal">Para Ana <span class="heart-pulse">❤️</span></h1>
+      <p class="hero-subtitle reveal">Uma pequena lembrança de tudo que vivemos juntos.</p>
+
+      <button class="btn-primary reveal" id="btnComecar">
+        Começar Nossa História
+        <span class="btn-shine"></span>
+      </button>
+
+      <div class="hero-heart-container">
+        <button class="hero-heart" id="heroHeart" aria-label="Coração especial">
+          <svg viewBox="0 0 100 100" class="heart-svg">
+            <defs>
+              <linearGradient id="heartGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:#ff6b9d"/>
+                <stop offset="50%" style="stop-color:#e63946"/>
+                <stop offset="100%" style="stop-color:#ffd700"/>
+              </linearGradient>
+            </defs>
+            <path d="M50 88 C20 60, 5 40, 5 25 C5 10, 20 5, 35 15 C42 5, 58 5, 65 15 C80 5, 95 10, 95 25 C95 40, 80 60, 50 88Z" fill="url(#heartGrad)"/>
+          </svg>
+          <span class="heart-glow"></span>
+        </button>
+        <p class="hero-heart-hint">Toque no coração</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CONTEÚDO PRINCIPAL ==================== -->
+  <main class="main-content hidden" id="mainContent">
+
+    <!-- SEÇÃO 1 — NOSSO INÍCIO -->
+    <section class="section section-inicio" id="secaoInicio">
+      <div class="section-inner">
+        <div class="inicio-grid">
+          <div class="inicio-photo parallax-wrap" data-parallax="0.15">
+            <div class="photo-frame glass">
+              <img src="" alt="" id="inicioFoto" class="lazy-img">
+              <div class="photo-placeholder">📷</div>
+            </div>
+          </div>
+          <div class="inicio-text">
+            <span class="section-tag fade-up">Capítulo 1</span>
+            <h2 class="section-title fade-up" id="inicioTitulo"></h2>
+            <p class="section-subtitle fade-up" id="inicioSubtitulo"></p>
+            <div class="inicio-paragrafos" id="inicioParagrafos"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEÇÃO 2 — GALERIA -->
+    <section class="section section-galeria" id="secaoGaleria">
+      <div class="section-inner">
+        <span class="section-tag fade-up">Capítulo 2</span>
+        <h2 class="section-title fade-up">Nossos Melhores Momentos</h2>
+        <p class="section-subtitle fade-up">Cada foto guarda um pedaço do nosso coração</p>
+        <div class="galeria-scroll fade-up">
+          <div class="galeria-track" id="galeriaTrack"></div>
+        </div>
+        <div class="galeria-hint fade-up">← Deslize para ver mais →</div>
+      </div>
+    </section>
+
+    <!-- SEÇÃO 3 — TIMELINE -->
+    <section class="section section-timeline" id="secaoTimeline">
+      <div class="section-inner">
+        <span class="section-tag fade-up">Capítulo 3</span>
+        <h2 class="section-title fade-up">Nossa Linha do Tempo</h2>
+        <p class="section-subtitle fade-up">Cada marco, uma nova página da nossa história</p>
+        <div class="timeline" id="timelineContainer"></div>
+      </div>
+    </section>
+
+    <!-- SEÇÃO 4 — MOTIVOS -->
+    <section class="section section-motivos" id="secaoMotivos">
+      <div class="section-inner">
+        <span class="section-tag fade-up">Capítulo 4</span>
+        <h2 class="section-title fade-up">Motivos Pelos Quais Eu Amo Você</h2>
+        <p class="section-subtitle fade-up">Clique nos cartões para descobrir</p>
+        <div class="motivos-grid" id="motivosGrid"></div>
+      </div>
+    </section>
+
+    <!-- SEÇÃO 5 — CARTA -->
+    <section class="section section-carta" id="secaoCarta">
+      <div class="section-inner">
+        <span class="section-tag fade-up">Capítulo 5</span>
+        <h2 class="section-title fade-up" id="cartaTitulo"></h2>
+        <div class="carta-papel glass fade-up">
+          <div class="carta-texto" id="cartaTexto"></div>
+          <p class="carta-assinatura" id="cartaAssinatura"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEÇÃO 6 — TEMPO JUNTOS -->
+    <section class="section section-contador" id="secaoContador">
+      <div class="section-inner">
+        <span class="section-tag fade-up">Capítulo 6</span>
+        <h2 class="section-title fade-up">Tempo Juntos</h2>
+        <p class="section-subtitle fade-up">Cada segundo ao seu lado é um tesouro</p>
+        <div class="contador-grid fade-up" id="contadorGrid">
+          <div class="contador-item"><span class="contador-num" id="cntAnos">0</span><span class="contador-label">Anos</span></div>
+          <div class="contador-item"><span class="contador-num" id="cntMeses">0</span><span class="contador-label">Meses</span></div>
+          <div class="contador-item"><span class="contador-num" id="cntDias">0</span><span class="contador-label">Dias</span></div>
+          <div class="contador-item"><span class="contador-num" id="cntHoras">0</span><span class="contador-label">Horas</span></div>
+          <div class="contador-item"><span class="contador-num" id="cntMinutos">0</span><span class="contador-label">Minutos</span></div>
+          <div class="contador-item"><span class="contador-num" id="cntSegundos">0</span><span class="contador-label">Segundos</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEÇÃO 7 — PLAYLIST -->
+    <section class="section section-playlist" id="secaoPlaylist">
+      <div class="section-inner">
+        <span class="section-tag fade-up">Capítulo 7</span>
+        <h2 class="section-title fade-up">Playlist do Casal</h2>
+        <p class="section-subtitle fade-up">As trilhas sonoras do nosso amor</p>
+        <div class="playlist-grid" id="playlistGrid"></div>
+      </div>
+    </section>
+
+    <!-- SEÇÃO 8 — CÉU DOS DESEJOS -->
+    <section class="section section-ceu" id="secaoCeu">
+      <div class="ceu-bg" id="ceuBg"></div>
+      <div class="section-inner ceu-inner">
+        <span class="section-tag fade-up">Capítulo 8</span>
+        <h2 class="section-title fade-up">Céu dos Desejos</h2>
+        <p class="section-subtitle fade-up">Clique nas estrelas e descubra meus sonhos</p>
+        <div class="estrela-mensagem glass hidden" id="estrelaMensagem"></div>
+      </div>
+    </section>
+
+    <!-- SEÇÃO 9 — FUTURO -->
+    <section class="section section-futuro" id="secaoFuturo">
+      <div class="section-inner">
+        <span class="section-tag fade-up">Capítulo 9</span>
+        <h2 class="section-title fade-up">Nosso Futuro</h2>
+        <p class="section-subtitle fade-up">Sonhos que vamos realizar juntos</p>
+        <div class="futuro-grid" id="futuroGrid"></div>
+      </div>
+    </section>
+
+    <!-- FINAL -->
+    <section class="section section-final" id="secaoFinal">
+      <canvas id="finalCanvas" aria-hidden="true"></canvas>
+      <div class="final-content">
+        <div class="final-message glass fade-up">
+          <p class="final-nome">Ana,</p>
+          <p>Obrigado por fazer minha vida mais feliz.</p>
+          <p>Você transformou dias comuns em lembranças especiais.</p>
+          <p class="final-amor">Eu te amo. ❤️</p>
+          <p class="final-assinatura">Com amor,<br><strong>João</strong></p>
+        </div>
+        <button class="btn-primary fade-up" id="btnReviver">
+          Reviver Nossa História
+          <span class="btn-shine"></span>
+        </button>
+      </div>
+    </section>
+  </main>
+
+  <!-- Lightbox -->
+  <div class="lightbox hidden" id="lightbox" role="dialog" aria-modal="true" aria-label="Visualizar foto">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Fechar">&times;</button>
+    <div class="lightbox-content">
+      <img src="" alt="" id="lightboxImg">
+      <p class="lightbox-caption" id="lightboxCaption"></p>
+    </div>
+  </div>
+
+  <!-- Página Secreta -->
+  <div class="secret-page hidden" id="secretPage">
+    <div class="secret-bg"></div>
+    <div class="secret-content">
+      <button class="secret-close" id="secretClose" aria-label="Fechar">&times;</button>
+      <div class="secret-discovery">
+        <span class="secret-sparkle">✨</span>
+        <h2 class="secret-title">Coisas Que Eu Ainda Quero Viver Com Você ❤️</h2>
+        <p class="secret-subtitle">Você descobriu meu segredo...</p>
+      </div>
+      <ul class="secret-list" id="secretList"></ul>
+    </div>
+  </div>
+
+  <!-- Áudio de fundo -->
+  <audio id="bgMusic" loop preload="auto"></audio>
+
+  <!-- Dados -->
+  <script src="data/mensagens.js"></script>
+  <script src="data/timeline.js"></script>
+  <script src="data/galeria.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
